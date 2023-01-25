@@ -3,13 +3,13 @@ package controllers;
 import models.Coulor;
 
 public class ColorController {
-	private IC opt;
+
 	
-	public ColorController(IC opt) {
-		this.opt = opt;
+	public ColorController() {
+
 	}
 	
-	public void execute(int valeur, Coulor c) throws Exception {
+	public void execute(int valeur, Coulor c,IC opt) throws Exception {
 		opt.setColor(valeur, c);
 	}
 }

@@ -6,7 +6,7 @@ import models.*;
 import facad.*;
 
 public class Vue extends JFramSwing implements Observer{
-	private static final long serialVersionUID = 1L;
+
 
 	public static Vue screen;
 	public static Vue getinstance(Coulor color){
@@ -31,10 +31,7 @@ public class Vue extends JFramSwing implements Observer{
 	public JInputSwing inputVert = new JInputSwing("0",200,165,50,20);
 	
 	public JPanelSwing couleur = new JPanelSwing(Color.BLACK,290,50,100,100);
-	
-	//	Controller
-	public ColorController ctrl;
-	
+
 	//Model	
 	public Coulor c;
 	

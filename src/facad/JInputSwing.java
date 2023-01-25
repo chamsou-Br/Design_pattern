@@ -1,11 +1,8 @@
 package facad;
-import controllers.ColorController;
-import controllers.ControllerBlue;
-import controllers.ControllerGreen;
-import controllers.ControllerRed;
+import controllers.*;
 import vues.Vue;
 
-import javax.swing.*;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,26 +38,29 @@ public class JInputSwing  {
     class inputHandler implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
+            IC ICB = new ControllerBlue();
+            IC ICR = new ControllerRed();
+            IC ICG = new ControllerGreen();
             if(e.getSource().equals(v.inputBleu.getInput())) {
-                v.ctrl = new ColorController(new ControllerBlue());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputBleu.getInput().getText()), v.c);
+                     ctrl.execute(Integer.parseInt(v.inputBleu.getInput().getText()), v.c,ICB);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.inputRouge.getInput())) {
-                v.ctrl = new ColorController(new ControllerRed());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputRouge.getInput().getText()), v.c);
+                    ctrl.execute(Integer.parseInt(v.inputRouge.getInput().getText()), v.c,ICR);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.inputVert.getInput())) {
-                v.ctrl = new ColorController(new ControllerGreen());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputVert.getInput().getText()), v.c);
+                    ctrl.execute(Integer.parseInt(v.inputVert.getInput().getText()), v.c,ICG);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }

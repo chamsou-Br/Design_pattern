@@ -1,12 +1,9 @@
 package facad;
 
-import controllers.ColorController;
-import controllers.ControllerBlue;
-import controllers.ControllerGreen;
-import controllers.ControllerRed;
+import controllers.*;
 import vues.Vue;
 
-import javax.swing.*;
+import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -40,50 +37,53 @@ public class JSlideSwing {
 
     class sliderHandler implements ChangeListener {
         public void stateChanged(ChangeEvent e) {
+            IC ICB = new ControllerBlue();
+            IC ICR = new ControllerRed();
+            IC ICG = new ControllerGreen();
             if(e.getSource().equals(v.sliderBleu.getSlider())) {
-                v.ctrl = new ColorController(new ControllerBlue());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(v.sliderBleu.getSlider().getValue(), v.c);
+                    ctrl.execute(v.sliderBleu.getSlider().getValue(), v.c,ICB);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.sliderRouge.getSlider())) {
-                v.ctrl = new ColorController(new ControllerRed());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(v.sliderRouge.getSlider().getValue(), v.c);
+                    ctrl.execute(v.sliderRouge.getSlider().getValue(), v.c,ICR);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.sliderVert.getSlider())){
-                v.ctrl = new ColorController(new ControllerGreen());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(v.sliderVert.getSlider().getValue(), v.c);
+                    ctrl.execute(v.sliderVert.getSlider().getValue(), v.c,ICG);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.inputBleu)) {
-                v.ctrl = new ColorController(new ControllerBlue());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputBleu.getInput().getText()), v.c);
+                    ctrl.execute(Integer.parseInt(v.inputBleu.getInput().getText()), v.c,ICB);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.inputRouge)) {
-                v.ctrl = new ColorController(new ControllerBlue());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputRouge.getInput().getText()), v.c);
+                    ctrl.execute(Integer.parseInt(v.inputRouge.getInput().getText()), v.c,ICR);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             }
             else if(e.getSource().equals(v.inputVert)) {
-                v.ctrl = new ColorController(new ControllerBlue());
+                ColorController ctrl = new ColorController();
                 try {
-                    v.ctrl.execute(Integer.parseInt(v.inputVert.getInput().getText()), v.c);
+                    ctrl.execute(Integer.parseInt(v.inputVert.getInput().getText()), v.c,ICG);
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
